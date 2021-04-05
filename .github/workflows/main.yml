@@ -1,0 +1,23 @@
+name: CC Autograde
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Build with Maven
+      run: mvn clean test
+      env:
+        AID: "5710353417633792"
+        CID: "5e767778-c0ce-4ea7-af65-b0d16d5d6ebc"
+                                    
